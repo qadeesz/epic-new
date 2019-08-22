@@ -8,7 +8,8 @@ import CardActionArea from "@material-ui/core/CardActionArea";
 import Slider from "./womenSlider";
 import NaveBar from "./navebara";
 import path from "path";
-import {baseUrl} from '../../shared';
+import { baseUrl } from "../../shared";
+import {Link} from 'react-router-dom';
 
 class WomenCart extends Component {
   constructor(props) {
@@ -80,11 +81,14 @@ class WomenCart extends Component {
             return (
               <Card className="cardBox">
                 <div>
-                  <img
-                    className="imageItem"
-                    style={{ width: "100%" }}
-                    src={baseUrl + item.imgSrc}
-                  />
+                  <Link to={"/productDetail/" + item._id}>
+                    <img
+                      onClick={() => console.log("hello")}
+                      className="imageItem"
+                      style={{ width: "100%" }}
+                      src={baseUrl + item.imgSrc}
+                    />
+                  </Link>
                   <div className="WedDress">{item.title}</div>
                 </div>
               </Card>
