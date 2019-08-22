@@ -17,6 +17,7 @@ import CatHeader from "./cat-header/cat_header";
 import CatRoutes from "./CatRoutes/index";
 import PasswordReset from "./ResetPassword";
 import AboutUs from "./AboutUs";
+import { baseUrl } from "../shared";
 
 class Main extends React.Component {
   state = {
@@ -24,7 +25,7 @@ class Main extends React.Component {
   };
 
   componentDidMount() {
-    fetch("/products/get_all_products", {})
+    fetch(baseUrl + "products/get_all_products")
       .then(resp => {
         return resp.json();
       })

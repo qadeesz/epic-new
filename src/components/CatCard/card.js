@@ -9,7 +9,7 @@ import QuickOrder from "../cat-cards/quick-order";
 import "../css/computing_shop.css";
 import { connect } from "react-redux";
 import { addToCart } from "../../Redux/actions/cart";
-import ProductActionCreator from "../../Redux/epics/product";
+// import ProductActionCreator from "../../Redux/epics/product";
 import { Empty } from "antd";
 import { Link } from "react-router-dom";
 import { deleteProduct } from "./deleteProductEpic";
@@ -39,57 +39,17 @@ const styles = theme => ({
 class CardContainer extends React.Component {
   constructor() {
     super();
-    this.state = {
-      // items: [
-      // {
-      //   id: "50",
-      //   name: "p-50",
-      //   img1:
-      //     "https://epicwoo.com/demo/wp-content/uploads/2018/05/product-39-350x340.jpg",
-      //   price: "200"
-      // },
-      // {
-      //   id: "60",
-      //   name: "p-60",
-      //   img1:
-      //     "https://epicwoo.com/demo/wp-content/uploads/2018/05/product-60.jpg",
-      //   price: "1000"
-      // },
-      // {
-      //   id: "70",
-      //   name: "p-70",
-      //   img1:
-      //     " https://epicwoo.com/demo/wp-content/uploads/2018/05/product-35-1-350x340.jpg",
-      //   price: "900"
-      // },
-      // {
-      //   id: "80",
-      //   name: "p-80",
-      //   img1:
-      //     "https://epicwoo.com/demo/wp-content/uploads/2018/05/product-34-1-350x340.jpg",
-      //   price: "700"
-      // },
-      // {
-      //   id: "90",
-      //   name: "p-90",
-      //   img1:
-      //     "https://epicwoo.com/demo/wp-content/uploads/2018/05/product-28-150x150.jpg",
-      //   price: "300"
-      // }
-      // ]
-      // isHowering: false
-    };
   }
 
-  componentDidMount() {
-    fetch(baseUrl + "products/get_all_products", {})
-      .then(resp => {
-        return resp.json();
-      })
-      .then(res => {
-        this.props.dispatch(ProductActionCreator.GetAll(res));
-      });
-  }
+  // componentDidMount() {
+  //   fetch(baseUrl + "products/get_all_products")
+  //     .then(resp => {
+  //       return resp.json();
+  //     })
+  //     .then(res => {
+  //       this.props.dispatch(ProductActionCreator.GetAll(res));
+  //     });
+  // }
 
   addItemToCart = item => () => {
     this.props.dispatch(dis => dis(addToCart(item)));
@@ -119,21 +79,7 @@ class CardContainer extends React.Component {
                   items = true;
                   return (
                     <div className="cards">
-                      <Card
-                        className={"catCardManager"}
-                        style={card}
-                        // onMouseEnter={() => {
-
-                        //     this.setState({
-                        //         isHowering: true
-                        //     });
-                        // }}
-                        // onMouseLeave={() => {
-                        //     this.setState({
-                        //         isHowering: false
-                        //     });
-                        // }}
-                      >
+                      <Card className={"catCardManager"} style={card}>
                         <CardActionArea onClick={this.Click}>
                           <Link to={"/productDetail/" + item._id}>
                             <img
