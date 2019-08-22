@@ -1,0 +1,3 @@
+.cat_Head+div img + div + div{
+    z-index: 100000;
+}
