@@ -41,7 +41,6 @@ class Main extends React.Component {
     this.setState({ val: val });
   };
   render() {
-    console.log(this.state);
     return (
       <div>
         <div className="infoHead">
@@ -71,7 +70,8 @@ class Main extends React.Component {
     );
   }
 }
-const mapStateToProps = store => ({
-  Authentication: store.Authentication
-});
+const mapStateToProps = store =>
+  console.log("storeTesting", store) || {
+    Authentication: store.Authentication
+  };
 export default connect(mapStateToProps)(Main);

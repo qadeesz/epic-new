@@ -12,7 +12,7 @@ import CartIcon from "./cartIcon";
 import CartItems from "./cartItems";
 import { connect } from "react-redux";
 import { Typography, Divider } from "@material-ui/core";
-import { updateQuantity, sendOrder } from "../../Redux/actions/cart";
+import {  sendOrder } from "../../Redux/actions/cart";
 import { sendOrder as sendOrderEpic } from "../../Redux/epics/cart";
 import { from } from "rxjs";
 

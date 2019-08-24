@@ -11,7 +11,9 @@ import DeleteIcon from "@material-ui/icons/Delete";
 import IconButton from "@material-ui/core/IconButton";
 import { connect } from "react-redux";
 import { removeFromCart, updateQuantity } from "../../Redux/actions/cart";
-
+import { baseUrl } from "../../shared";
+import Rating from "react-rating";
+import { addRating } from "../../Redux/actions/cart";
 const styles = theme => ({
   root: {
     width: 400,
@@ -26,16 +28,20 @@ class CartItems extends React.Component {
   quantityChangeHandler = item => evt => {
     this.props.dispatch(updateQuantity(item, parseInt(evt.target.value)));
   };
+  ratingHandler = item => rating => {
+    this.props.dispatch(dis => dis(addRating({ _id: item._id, rating })));
+  };
   removeItem = item => () =>
     this.props.dispatch(dis => dis(removeFromCart(item)));
   render() {
     const { classes } = this.props;
+    console.log("test", this.props.Cart.cart);
     return (
       <List className={classes.root}>
         {this.props.Cart.cart.map(item => (
           <ListItem key={item.id} alignItems="flex-start">
             <ListItemAvatar>
-              <Avatar alt={item.name} src={item.img1} />
+              <Avatar alt={item.name} src={baseUrl + item.imgSrc} />
             </ListItemAvatar>
             <ListItemText
               primary={
@@ -51,6 +57,26 @@ class CartItems extends React.Component {
                       max="100"
                     />
                   </span>
+                  <div>
+                    <Rating
+                      onClick={this.ratingHandler(item)}
+                      initialRating={item.rating}
+                      emptySymbol={
+                        <img
+                          style={{ width: "20px" }}
+                          src={require("../../assets/star-empty.png")}
+                          className="icon"
+                        />
+                      }
+                      fullSymbol={
+                        <img
+                          style={{ width: "20px" }}
+                          src={require("../../assets/star-full.png")}
+                          className="icon"
+                        />
+                      }
+                    />
+                  </div>
                 </div>
               }
             />

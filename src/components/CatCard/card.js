@@ -52,7 +52,8 @@ class CardContainer extends React.Component {
   // }
 
   addItemToCart = item => () => {
-    this.props.dispatch(dis => dis(addToCart(item)));
+    let itemClone = JSON.parse(JSON.stringify(item));
+    this.props.dispatch(dis => dis(addToCart(itemClone)));
   };
   render() {
     let items = false;

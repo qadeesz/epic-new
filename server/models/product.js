@@ -16,49 +16,46 @@ const ProductsSchema = new Schema({
     type: String,
     required: true
   },
-  date:{
+  date: {
     type: String,
     default: new Date()
-    
   },
-  category:{
-    type:String,
-    required:true
+  category: {
+    type: String,
+    required: true
   },
-  brand:{
-      type:String,
-      default:''
+  brand: {
+    type: String,
+    default: ""
   },
-  latest:{
-      type:Boolean,
-      default:false
-
+  latest: {
+    type: Boolean,
+    default: false
   },
-  top_rated:{
-    type:Boolean,
-    default:false
+  rating: {
+    type: [Number],
+    default: 0
   },
-  best_seller:{
-    type:Boolean,
-    default:false
+  best_seller: {
+    type: Boolean,
+    default: false
   },
-  sales:{
-      type:Number,
-      default:0,
+  sales: {
+    type: Number,
+    default: 0
   },
-  price:{
-    type:String,
-    required:true
+  price: {
+    type: String,
+    required: true
   },
-  offer:{
-    type:String,
-    default:'n/a'
+  offer: {
+    type: String,
+    default: "n/a"
   },
-  user : {
+  user: {
     type: mongoose.Schema.Types.ObjectId,
-    ref:'User'
+    ref: "User"
   }
-
 });
 
 // userSchema.plugin(localMongoose);

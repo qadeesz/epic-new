@@ -42,6 +42,7 @@ Router.route("/").post(authenticate.verifyUser, (req, res, next) => {
         return;
       }
       product.sales = product.sales + req.body[i].quantity;
+      product.rating.push(req.body[i].rating);
       product.save(err => {
         errG = err;
         if (err) return next(err);

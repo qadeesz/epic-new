@@ -5,6 +5,7 @@ export const LOGIN_FAILED = "LOGIN_FAILDED";
 export const LOG_OUT = "LOG_OUT";
 
 export const ADD_TO_CART = "ADD_TO_CART";
+export const ADD_RATING = "ADD_RATING";
 export const REMOVE_FROM_CART = "REMOVE_FROM_CART";
 export const UPDATE_QUANTITY = "UPDATE_QUANTITY";
 export const SEND_ORDER = "SEND_ORDER";

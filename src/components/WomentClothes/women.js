@@ -65,7 +65,6 @@ class WomenCart extends Component {
   }
 
   render() {
-    console.log("Women", this.props.products);
     let i = 0;
     return (
       <div className="images">
