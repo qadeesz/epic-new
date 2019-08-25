@@ -23,6 +23,7 @@ export default class NaveBar extends Component {
       return (
         <li>
           <a onClick={() => this.changeCat(el.toLowerCase())}>{el}</a>
+          {/* <a onClick={() => this.changeCat(el.toLowerCase())}>{el}</a> */}
         </li>
       );
     });
@@ -30,7 +31,7 @@ export default class NaveBar extends Component {
     return (
       <div>
         <div className="listItemHeadig">
-          <h3>WOMEN'S CLOTHING</h3>
+          <h3>Categories By Price</h3>
         </div>
         <div>
           <PriceFilter

@@ -36,6 +36,7 @@ class FullWidthGrid extends Component {
   };
 
   checkCat = val => {
+    debugger;
     this.setState({ cat: val });
   };
   render() {

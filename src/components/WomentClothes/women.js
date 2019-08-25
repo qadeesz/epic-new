@@ -17,8 +17,8 @@ class WomenCart extends Component {
       return this.props.products.filter((prod, index) => {
         return (
           prod.price <= 1000 &&
-          prod.category.toLowerCase() === this.props.cat.toLowerCase() &&
-          index < 8
+          prod.category.toLowerCase() === this.props.cat.toLowerCase() 
+          // index < 8
         );
       });
     } else if (this.props.selectedFilter === "2") {
@@ -26,8 +26,7 @@ class WomenCart extends Component {
         return (
           prod.price > 1000 &&
           prod.category.toLowerCase() == this.props.cat.toLowerCase() &&
-          prod.price <= 10000 &&
-          index < 8
+          prod.price <= 10000          // index < 8
         );
       });
     } else if (this.props.selectedFilter === "3") {
@@ -35,15 +34,15 @@ class WomenCart extends Component {
         return (
           prod.price > 10000 &&
           prod.category.toLowerCase() === this.props.cat.toLowerCase() &&
-          prod.price <= 100000 &&
-          index < 8
+          prod.price <= 100000 
+          // index < 8
         );
       });
     } else {
       return this.props.products.filter((prod, index) => {
         return (
-          prod.category.toLowerCase() === this.props.cat.toLowerCase() &&
-          index < 8
+          prod.category.toLowerCase() === this.props.cat.toLowerCase() 
+          // index < 8
         );
       });
     }

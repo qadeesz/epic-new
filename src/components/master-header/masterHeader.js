@@ -237,15 +237,15 @@ class MasterHeader extends React.Component {
                   </div>
                 </React.Fragment>
               ) : (
-                <IconButton
-                  aria-owns={isMenuOpen ? "material-appbar" : undefined}
-                  aria-haspopup="true"
-                  onClick={this.handleProfileMenuOpen}
-                  color="inherit"
-                >
-                  <AccountCircle />
-                </IconButton>
-              )}
+                  <IconButton
+                    aria-owns={isMenuOpen ? "material-appbar" : undefined}
+                    aria-haspopup="true"
+                    onClick={this.handleProfileMenuOpen}
+                    color="inherit"
+                  >
+                    <AccountCircle />
+                  </IconButton>
+                )}
             </div>
             <div className={classes.sectionMobile}>
               <IconButton
