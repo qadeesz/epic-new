@@ -9,99 +9,68 @@ import Slider from "./womenSlider";
 import NaveBar from "./navebara";
 import path from "path";
 import { baseUrl } from "../../shared";
-import {Link} from 'react-router-dom';
+import { Link } from "react-router-dom";
 
 class WomenCart extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      items: [
-        {
-          id: 26,
-          name: "p-26",
-          img1:
-            "//sc01.alicdn.com/kf/HTB1IACbg5QnBKNjSZFmq6AApVXaq/TONGYANG-Men-Winter-Hooded-Thick-Padded-Jacket.jpg_300x300.jpg",
-          name: "WEDING DRESS"
-        },
-        {
-          id: 27,
-          name: "p-27",
-          img1:
-            "//sc01.alicdn.com/kf/HTB11msuKeuSBuNjSsziq6zq8pXam/Men-s-Custom-Vintage-Embroidered-Loose-Multi.jpg_300x300.jpg",
-          name: "WEDING DRESS"
-        },
-        {
-          id: 28,
-          name: "p-28",
-          img1:
-            "//sc01.alicdn.com/kf/HTB1aic2OXXXXXcUXXXXq6xXFXXXl/Waterproof-softshell-man-jacket-outdoor-Fleece-Inside.jpg_300x300.jpg",
-          name: "WEDING DRESS"
-        },
-
-        {
-          id: 29,
-          name: "p-29",
-          img1:
-            " //sc02.alicdn.com/kf/HTB1sBv2bQvoK1RjSZFDq6xY3pXag/Blaze-Jacket-Extremely-comfortable-stretch-hybrid-PrimaLoft.jpg_300x300.jpg",
-          name: "WEDING DRESS"
-        },
-
-        {
-          id: 30,
-          name: "p-30",
-          img1:
-            "  https://epicwoo.com/demo/wp-content/uploads/2018/02/cb-banner-1-300x374.jpg",
-          name: "WEDING DRESS"
-        },
-        {
-          id: 31,
-          name: "p-31",
-          img1:
-            "  https://epicwoo.com/demo/wp-content/uploads/2018/02/cb-banner-6-300x374.jpg",
-          name: "WEDING DRESS"
-        }
-      ]
-    };
-  }
-
+  filterProducts = () => {
+    if (this.props.selectedFilter === "1") {
+      return this.props.products.filter((prod, index) => {
+        return (
+          prod.price <= 1000 &&
+          prod.category.toLowerCase() === this.props.cat.toLowerCase() &&
+          index < 8
+        );
+      });
+    } else if (this.props.selectedFilter === "2") {
+      return this.props.products.filter((prod, index) => {
+        return (
+          prod.price > 1000 &&
+          prod.category.toLowerCase() == this.props.cat.toLowerCase() &&
+          prod.price <= 10000 &&
+          index < 8
+        );
+      });
+    } else if (this.props.selectedFilter === "3") {
+      return this.props.products.filter((prod, index) => {
+        return (
+          prod.price > 10000 &&
+          prod.category.toLowerCase() === this.props.cat.toLowerCase() &&
+          prod.price <= 100000 &&
+          index < 8
+        );
+      });
+    } else {
+      return this.props.products.filter((prod, index) => {
+        return (
+          prod.category.toLowerCase() === this.props.cat.toLowerCase() &&
+          index < 8
+        );
+      });
+    }
+  };
   render() {
     let i = 0;
     return (
       <div className="images">
-        {/* <div className="images"> */}
-
-        {this.props.products.map(item => {
-          if (
-            item.category.toLowerCase() == this.props.cat.toLowerCase() &&
-            i < 8
-          ) {
-            i++;
-
-            return (
-              <Card className="cardBox">
-                <div>
-                  <Link to={"/productDetail/" + item._id}>
-                    <img
-                      onClick={() => console.log("hello")}
-                      className="imageItem"
-                      style={{ width: "100%" }}
-                      src={baseUrl + item.imgSrc}
-                    />
-                  </Link>
-                  <div className="WedDress">{item.title}</div>
-                </div>
-              </Card>
-            );
-          }
+        {this.filterProducts().map(item => {
+          return (
+            <Card className="cardBox">
+              <div>
+                <Link to={"/productDetail/" + item._id}>
+                  <img
+                    className="imageItem"
+                    style={{ width: "100%" }}
+                    src={baseUrl + item.imgSrc}
+                  />
+                </Link>
+                <div className="WedDress">{item.title}</div>
+              </div>
+            </Card>
+          );
         })}
-
-        {/* </div> */}
       </div>
     );
   }
 }
-// MediaCard.propTypes = {
-//     classes: PropTypes.object.isRequired,
-// };
 
 export default WomenCart;
