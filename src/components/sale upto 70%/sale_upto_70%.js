@@ -1,7 +1,6 @@
 import React from 'react';
 // import { stat } from 'fs';
 import '../css/masterHeader.css'
-// import { connect } from 'http2';
 
 export default class Upto70 extends React.Component {
     constructor() {

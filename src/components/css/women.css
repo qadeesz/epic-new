@@ -29,6 +29,14 @@ box-shadow: 2px 3px 2px 2px whitesmoke;
     margin: auto; 
 }
 
+.sc-launcher, .sc-header{
+    background-color: red !important;  
+}
+
+.sc-header--close-button img:hover{
+background-color: black !important;
+border-radius: 50px;
+}
 
 .WedDress{
     color:white;
@@ -45,7 +53,7 @@ box-shadow: 2px 3px 2px 2px whitesmoke;
 }
 
 .images{
-   
+   justify-content: center;
     width: 100%;
     display: flex; 
    flex-wrap:wrap 

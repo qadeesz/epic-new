@@ -180,13 +180,12 @@ class MasterHeader extends React.Component {
             {/* <IconButton className={classes.menuButton} color="inherit" aria-label="Open drawer">
                             <MenuIcon />
                         </IconButton> */}
-            <Link to="/">
-              <img
-                src="https://epicwoo.com/demo/wp-content/uploads/2018/05/logo-small.png"
-                width="150px"
-                height="auto"
-              />
-            </Link>
+
+            <img
+              src="https://epicwoo.com/demo/wp-content/uploads/2018/05/logo-small.png"
+              width="150px"
+              height="auto"
+            />
             <div className={classes.search}>
               <div className={classes.searchIcon}>
                 <SearchIcon />
@@ -238,15 +237,15 @@ class MasterHeader extends React.Component {
                   </div>
                 </React.Fragment>
               ) : (
-                  <IconButton
-                    aria-owns={isMenuOpen ? "material-appbar" : undefined}
-                    aria-haspopup="true"
-                    onClick={this.handleProfileMenuOpen}
-                    color="inherit"
-                  >
-                    <AccountCircle />
-                  </IconButton>
-                )}
+                <IconButton
+                  aria-owns={isMenuOpen ? "material-appbar" : undefined}
+                  aria-haspopup="true"
+                  onClick={this.handleProfileMenuOpen}
+                  color="inherit"
+                >
+                  <AccountCircle />
+                </IconButton>
+              )}
             </div>
             <div className={classes.sectionMobile}>
               <IconButton

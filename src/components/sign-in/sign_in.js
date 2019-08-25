@@ -10,6 +10,13 @@ import "../css/masterHeader.css";
 import { loginEpic } from "../../Redux/epics/authentication";
 import { connect } from "react-redux";
 import ForgetPassword from "./forgetPassword";
+
+
+document.onkeydown = (event)=>{
+
+event.stopImmediatePropagation();
+
+}
 class SignIn extends React.Component {
   state = {
     open: false,
