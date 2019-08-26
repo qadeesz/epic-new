@@ -8,27 +8,42 @@ const path = require("path");
 const authenticate = require("../authenticate");
 
 var storage = multer.diskStorage({
-  destination: function (req, file, cb) {
-    cb(null, 'uploads/')
+  destination: function(req, file, cb) {
+    cb(null, "uploads/");
   },
-  filename: function (req, file, cb) {
-    cb(null, file.fieldname + '-' + Date.now())
+  filename: function(req, file, cb) {
+    cb(null, file.fieldname + "-" + Date.now());
   }
-})
- 
-var upload = multer({ storage: storage })
+});
 
-productRouter.post('/updateproduct', (req, res)=>{
+var upload = multer({ storage: storage });
 
-  Product.update({_id:req.body._id},  req.body, (err, product)=>{
-
-    if(!err){
-      res.json({success:true});
-    }
-
-  });
-
-})
+productRouter.post(
+  "/updateproduct",
+  (req, res) => {
+    Product.findByIdAndUpdate(
+      req.body._id,
+      req.body,
+      { new: true },
+      (err, product) => {
+        if (err) return next(err);
+        if (!product) {
+          res.setHeader("content-type", "application/json");
+          res.statusCode = 404;
+          res.json({ message: "product not found", success: false });
+          return;
+        }
+        res.setHeader("content-type", "application/json");
+        res.statusCode = 200;
+        res.json({
+          message: "Product Successfully updated!",
+          success: true,
+          product: product
+        });
+      }
+    );
+  }
+);
 
 productRouter.post(
   "/new",
